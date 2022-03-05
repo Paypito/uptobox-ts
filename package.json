@@ -1,0 +1,41 @@
+{
+  "name": "uptobox-ts",
+  "version": "1.0.0",
+  "description": "A Node library allowing to use uptobox APIs easily.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paypito/uptobox-ts.git"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "keywords": ["Uptobox", "API", "Download"],
+  "author": "Paypito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paypito/uptobox-ts/issues"
+  },
+  "homepage": "https://github.com/Paypito/uptobox-ts#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.6.2"
+  }
+}
