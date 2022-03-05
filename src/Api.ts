@@ -26,4 +26,26 @@ export default class Api {
     const url = Const.URL + `api/link?token=${token}&file_code=${fileCode}&waitingToken=${waitingToken}`;
     return await axios({ method: 'GET', url });
   };
+
+  /**
+   * Retrieve files's informations by providing the file codes.
+   * @param {string[]} fileCodes
+   * @returns {Promise<FileInfo[]>} Files informations
+   */
+  static getFilesInfo = async (...fileCodes: string[]) => {
+    const url = Const.URL + `api/link/info?fileCodes=${fileCodes.join(',')}`;
+    const resp = await axios({ method: 'GET', url });
+    const list: any[] = await resp.data.data?.list;
+    const fileInfos: FileInfo[] = [];
+    list.map((item) =>
+      fileInfos.push({
+        fileCode: item?.file_code,
+        fileName: item?.file_name,
+        fileSize: item?.file_size,
+        availableUts: item?.available_uts,
+        needPremium: item?.need_premium,
+      }),
+    );
+    return fileInfos;
+  };
 }

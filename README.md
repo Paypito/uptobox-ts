@@ -42,6 +42,12 @@ import { UptoboxApi } from 'uptobox-ts';
 // For non-premium users
 await UptoboxApi.getDownloadLink(token, fileCode, waitingToken)
 ```
+### [getFilesInfo](https://docs.uptobox.com/#retrieve-file-informations)
+```typescript
+import { UptoboxApi } from 'uptobox-ts';
+
+await UptoboxApi.getFilesInfo(fileCodeOne, fileCodeTwo);
+```
 
 ## License
 Distributed under the MIT License. See LICENSE for more information.

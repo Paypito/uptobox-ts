@@ -2,7 +2,7 @@ import Api from './Api';
 import Utils from './Utils';
 
 export class Uptobox {
-  token: string | undefined;
+  private token: string | undefined;
 
   /**
    * Set the Uptobox user's token
