@@ -1,4 +1,7 @@
 # Uptobox-TS
+![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)
+[![NPM Version](https://badgen.net/npm/v/uptobox-ts)](https://www.npmjs.com/package/uptobox-ts)
+![Author](https://img.shields.io/badge/author-Paypito-red)
 
 A Node library allowing to use uptobox APIs easily.
 
@@ -46,8 +49,32 @@ await UptoboxApi.getDownloadLink(token, fileCode, waitingToken)
 ```typescript
 import { UptoboxApi } from 'uptobox-ts';
 
-await UptoboxApi.getFilesInfo(fileCodeOne, fileCodeTwo);
+await UptoboxApi.getFilesInfo(fileCodeOne, fileCodeTwo, ...);
 ```
-
+## Features
+- Download a file
+- More features to come in the future
+### APIs checklist
+  - [x] [getWaitingToken](https://docs.uptobox.com/#get-a-waiting-token)
+  - [x] [getDownloadLink](https://docs.uptobox.com/#get-the-download-link)
+  - [x] [getFilesInfo](https://docs.uptobox.com/#retrieve-file-informations)
+  - [ ] [getUserData](https://docs.uptobox.com/#retrieve-user-data)
+  - [ ] [enableSSLDownload](https://docs.uptobox.com/#ssl-download)
+  - [ ] [enableDirectDownload](https://docs.uptobox.com/#direct-download)
+  - [ ] [enableSecurityLock](https://docs.uptobox.com/#security-lock)
+  - [ ] [convertPoint](https://docs.uptobox.com/#point-conversion)
+  - [ ] [createVoucher](https://docs.uptobox.com/#create-voucher)
+  - [ ] [getFolderContent](https://docs.uptobox.com/#retrieve-files-in-public-folder)
+  - [ ] [getFilesAndFolders](https://docs.uptobox.com/#retrieve-files-and-folders)
+  - [ ] [updateFileInfo](https://docs.uptobox.com/#update-file-informations)
+  - [ ] [updateFilesInfo](https://docs.uptobox.com/#update-multiple-file-39-s-public-option)
+  - [ ] [moveFolder](https://docs.uptobox.com/#move-a-folder-to-another-location)
+  - [ ] [moveFiles](https://docs.uptobox.com/#move-one-or-multiple-files-to-another-location)
+  - [ ] [copyFiles](https://docs.uptobox.com/#copy-one-or-multiple-files-to-another-location)
+  - [ ] [renameFolder](https://docs.uptobox.com/#rename-a-folder)
+  - [ ] [createFolder](https://docs.uptobox.com/#create-a-folder)
+  - [ ] [deleteFiles](https://docs.uptobox.com/#delete-one-or-multiple-files)
+  - [ ] [deleteFolder](https://docs.uptobox.com/#delete-a-folder)
+  - [ ] [getUploadLink](https://docs.uptobox.com/#retrieve-an-upload-url)
 ## License
 Distributed under the MIT License. See LICENSE for more information.
