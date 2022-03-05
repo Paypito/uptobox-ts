@@ -44,4 +44,4 @@ await UptoboxApi.getDownloadLink(token, fileCode, waitingToken)
 ```
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+Distributed under the MIT License. See LICENSE for more information.
