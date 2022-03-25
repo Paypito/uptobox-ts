@@ -60,6 +60,12 @@ import { UptoboxApi } from 'uptobox-ts';
 
 await UptoboxApi.getFilesInfo(fileCodeOne, fileCodeTwo, ...);
 ```
+### [getUserData](https://docs.uptobox.com/#retrieve-user-data)
+```typescript
+import { UptoboxApi } from 'uptobox-ts';
+
+await UptoboxApi.getUserData(token);
+```
 ## Features
 - Download a file
 - Retrieve the remaining time for the download
