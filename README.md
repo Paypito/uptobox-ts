@@ -29,6 +29,15 @@ Uptobox.setToken(TOKEN); // User token provided by Uptobox
 // Will download the file (premium or non-premium) in the current folder
 await uptobox.downloadFile('https://uptobox.com/XXXXXXXXXXXX')
 ```
+### Get the remaining time to download
+```typescript
+import { UptoboxApi, Uptobox } from 'uptobox-ts';
+
+// Will return the remaining time for account's users
+await uptobox.getRemainingTime('https://uptobox.com/XXXXXXXXXXXX')
+// Will return the remaining time for guest users
+await uptobox.getRemainingTime('https://uptobox.com/XXXXXXXXXXXX', false)
+```
 ## APIs
 ### [getWaitingToken](https://docs.uptobox.com/#get-a-waiting-token)
 ```typescript
@@ -53,12 +62,13 @@ await UptoboxApi.getFilesInfo(fileCodeOne, fileCodeTwo, ...);
 ```
 ## Features
 - Download a file
+- Retrieve the remaining time for the download
 - More features to come in the future
 ### APIs checklist
   - [x] [getWaitingToken](https://docs.uptobox.com/#get-a-waiting-token)
   - [x] [getDownloadLink](https://docs.uptobox.com/#get-the-download-link)
   - [x] [getFilesInfo](https://docs.uptobox.com/#retrieve-file-informations)
-  - [ ] [getUserData](https://docs.uptobox.com/#retrieve-user-data)
+  - [x] [getUserData](https://docs.uptobox.com/#retrieve-user-data)
   - [ ] [enableSSLDownload](https://docs.uptobox.com/#ssl-download)
   - [ ] [enableDirectDownload](https://docs.uptobox.com/#direct-download)
   - [ ] [enableSecurityLock](https://docs.uptobox.com/#security-lock)

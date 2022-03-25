@@ -3,7 +3,8 @@ import axios from 'axios';
 
 export default class Api {
   /**
-   * Get a download link for an uptobox file
+   * PREMIUM : Get a download link for an uptobox file
+   * NORMAL : Get a waiting token for an uptobox file
    * @param {string} token
    * @param {string} fileCode
    * @param {string} password - Only required for files with password
@@ -16,7 +17,7 @@ export default class Api {
   };
 
   /**
-   * Get a download link for an uptobox file
+   * Get a download link for an uptobox file with waiting token
    * @param {string} token
    * @param {string} fileCode
    * @param {string} waitingToken - Only required for non premium accounts
@@ -47,5 +48,29 @@ export default class Api {
       }),
     );
     return fileInfos;
+  };
+
+  /**
+   * Get user's informations
+   * @param {string} token
+   * @returns {Promise<UserInfo>} User's informations
+   */
+  static getUserData = async (token: string) => {
+    const url = Const.URL + `api/user/me?token=${token}`;
+    const resp = await axios({ method: 'GET', url });
+    const data = await resp.data.data;
+    let userInfos: UserInfo;
+    userInfos = {
+      premium: data?.premium !== 0,
+      login: data?.login,
+      email: data?.email,
+      point: data?.point,
+      premiumExpire: new Date(data?.premium_expire) ?? null,
+      securityLock: data?.securityLock !== 0,
+      directDownload: data?.directDownload !== 0,
+      sslDownload: data?.sslDownload !== 0,
+      token: data?.token,
+    };
+    return userInfos;
   };
 }

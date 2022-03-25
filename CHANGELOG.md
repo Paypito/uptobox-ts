@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-
+## [1.0.3] - 2022-03-26
+### Added
+- Get the remaining time to download a file
+- API : Retrieve user informations
 ## [1.0.2] - 2022-03-05
 ### Added
 - Checklist of the APIs
@@ -14,3 +17,4 @@ Setting up the project.
 
 [1.0.1]: https://github.com/Paypito/uptobox-ts/tree/v1.0.1
 [1.0.2]: https://github.com/Paypito/uptobox-ts/compare/v1.0.1...v1.0.2
+[1.0.3]: https://github.com/Paypito/uptobox-ts/compare/v1.0.2...v1.0.3

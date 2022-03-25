@@ -1,5 +1,7 @@
+import axios from 'axios';
 import Api from './Api';
 import Utils from './Utils';
+import * as cheerio from 'cheerio';
 
 export class Uptobox {
   private token: string | undefined;
@@ -14,7 +16,7 @@ export class Uptobox {
 
   /**
    * Download a file from a Uptobox link
-   * @param link URL of the file
+   * @param {string} link URL of the file
    * @returns The download status result
    */
   downloadFile = async (link: string) => {
@@ -51,6 +53,19 @@ export class Uptobox {
         return 'An error occurred';
       }
     }
+  };
+
+  /**
+   * Get the remaining time before you can start a download (the minimum is 30 for the connected state and 60 for the guests)
+   * @param {string} fileLink URL of the file
+   * @param {boolean} userConnected Specifies whether you want to retrieve the time remaining in the connected state or not
+   * @returns The remaining number of seconds before a download can be started
+   */
+  getRemainingTime = async (fileLink: string, userConnected: boolean = true) => {
+    const resp = await axios({ method: 'GET', url: fileLink });
+    const $ = cheerio.load(resp.data);
+    const time = parseInt($('.time-remaining').attr('data-remaining-time') as string, 10);
+    return userConnected ? Math.max(30, time - 5400) : time;
   };
 
   private waitDownloadLink = async (fileCode: string, waitingToken: string) => {
